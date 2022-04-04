@@ -1,0 +1,26 @@
+.book {
+  position: relative;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0.25rem;
+  margin-right: 1px;
+  margin-left: 1px;
+  transform: rotate(2deg);
+  cursor: grabbing;
+  font-size: 0.9rem;
+  padding-bottom: 0.5rem;
+}
+
+.name {
+  transform: rotate(180deg);
+}
+
+.badge {
+  position: absolute;
+  bottom: 8px;
+}

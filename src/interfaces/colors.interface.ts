@@ -1,0 +1,12 @@
+export type Color = 'red'
+  | 'volcano'
+  | 'orange'
+  | 'gold'
+  | 'yellow'
+  | 'lime'
+  | 'green'
+  | 'cyan'
+  | 'sky'
+  | 'blue'
+  | 'purple'
+  | 'magenta';

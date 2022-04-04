@@ -1,0 +1,7 @@
+.container {
+  width: 60vw;
+  height: 0.5rem;
+  background: var(--bgMain);
+  border-radius: 0.25rem;
+  margin-top: 0.25rem;
+}

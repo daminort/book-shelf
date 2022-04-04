@@ -1,3 +1,32 @@
+:root {
+  --textMain: rgb(65, 67, 76);
+  --bgMain: #282c34;
+  --red: #ffa39e;
+  --redDark: #cf1322;
+  --volcano: #ffbb96;
+  --volcanoDark: #d4380d;
+  --orange: #ffd591;
+  --orangeDark: #d46b08;
+  --gold: #ffe58f;
+  --goldDark: #d48806;
+  --yellow: #fffb8f;
+  --yellowDark: #d4b106;
+  --lime: #eaff8f;
+  --limeDark: #7cb305;
+  --green: #b7eb8f;
+  --greenDark: #389e0d;
+  --cyan: #87e8de;
+  --cyanDark: #08979c;
+  --sky: #91d5ff;
+  --skyDark: #096dd9;
+  --blue: #adc6ff;
+  --blueDark: #1d39c4;
+  --purple: #d3adf7;
+  --purpleDark: #531dab;
+  --magenta: #ffadd2;
+  --magentaDark: #c41d7f;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +34,63 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  color: var(--textMain);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.redBg { background-color: var(--red) }
+.volcanoBg { background-color: var(--volcano) }
+.orangeBg { background-color: var(--orange) }
+.goldBg { background-color: var(--gold) }
+.yellowBg { background-color: var(--yellow) }
+.limeBg { background-color: var(--lime) }
+.greenBg { background-color: var(--green) }
+.cyanBg { background-color: var(--cyan) }
+.skyBg { background-color: var(--sky) }
+.blueBg { background-color: var(--blue) }
+.purpleBg { background-color: var(--purple) }
+.magentaBg { background-color: var(--magenta) }
+
+.redDarkBg { background-color: var(--redDark) }
+.volcanoDarkBg { background-color: var(--volcanoDark) }
+.orangeDarkBg { background-color: var(--orangeDark) }
+.goldDarkBg { background-color: var(--goldDark) }
+.yellowDarkBg { background-color: var(--yellowDark) }
+.limeDarkBg { background-color: var(--limeDark) }
+.greenDarkBg { background-color: var(--greenDark) }
+.cyanDarkBg { background-color: var(--cyanDark) }
+.skyDarkBg { background-color: var(--skyDark) }
+.blueDarkBg { background-color: var(--blueDark) }
+.purpleDarkBg { background-color: var(--purpleDark) }
+.magentaDarkBg { background-color: var(--magentaDark) }
+
+.redBorder { border-color: var(--red) }
+.volcanoBorder { border-color: var(--volcano) }
+.orangeBorder { border-color: var(--orange) }
+.goldBorder { border-color: var(--gold) }
+.yellowBorder { border-color: var(--yellow) }
+.limeBorder { border-color: var(--lime) }
+.greenBorder { border-color: var(--green) }
+.cyanBorder { border-color: var(--cyan) }
+.skyBorder { border-color: var(--sky) }
+.blueBorder { border-color: var(--blue) }
+.purpleBorder { border-color: var(--purple) }
+.magentaBorder { border-color: var(--magenta) }
+
+.redDarkBorder { border-color: var(--redDark) }
+.volcanoDarkBorder { border-color: var(--volcanoDark) }
+.orangeDarkBorder { border-color: var(--orangeDark) }
+.goldDarkBorder { border-color: var(--goldDark) }
+.yellowDarkBorder { border-color: var(--yellowDark) }
+.limeDarkBorder { border-color: var(--limeDark) }
+.greenDarkBorder { border-color: var(--greenDark) }
+.cyanDarkBorder { border-color: var(--cyanDark) }
+.skyDarkBorder { border-color: var(--skyDark) }
+.blueDarkBorder { border-color: var(--blueDark) }
+.purpleDarkBorder { border-color: var(--purpleDark) }
+.magentaDarkBorder { border-color: var(--magentaDark) }
