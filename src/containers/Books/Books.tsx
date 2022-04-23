@@ -1,23 +1,21 @@
-import React, { FC, useEffect, useState, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 
-import { Book as IBook} from 'interfaces/books.interface';
+import { useDispatch, useSelector } from 'state';
+import { booksActions, booksSelectors } from 'state/Books';
+
 import { Book } from 'components';
-import { books } from 'mocks/books';
 
 import s from './Books.module.css';
 
 const Books: FC = () => {
 
-  const [list, setList] = useState<IBook[]>([]);
-
-  useEffect(() => {
-    setList([...books]);
-  }, []);
+  const dispatch = useDispatch();
+  const list = useSelector(booksSelectors.getList);
 
   const onRemove = useCallback((name: string) => {
     const resList = list.filter(book => book.name !== name);
-    setList(resList);
-  }, [list, setList]);
+    dispatch(booksActions.refreshList(resList));
+  }, [list, dispatch]);
 
   return (
     <div className={s.container}>
