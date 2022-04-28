@@ -1,11 +1,11 @@
 import React, { FC, useCallback } from 'react';
-import { ReactSortable } from 'react-sortablejs';
+import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { arrayMove, SortableContext, horizontalListSortingStrategy } from '@dnd-kit/sortable';
 
-import { IBook } from 'interfaces/books.interface';
 import { useDispatch, useSelector } from 'state';
 import { booksActions, booksSelectors } from 'state/Books';
 
-import { Book } from 'components';
+import { Book, SortableItem } from 'components';
 
 import s from './Books.module.css';
 
@@ -14,15 +14,19 @@ const Books: FC = () => {
   const dispatch = useDispatch();
   const list = useSelector(booksSelectors.getList);
 
-  const mutableList = list.map(item => {
-    return {
-      ...item,
-    }
-  });
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+  );
 
-  const onSetList = useCallback((resList: IBook[]) => {
+  const onDragEnd = useCallback((event) => {
+    const { active, over } = event;
+
+    const oldIndex = list.findIndex(book => book.id === active.id);
+    const newIndex = list.findIndex(book => book.id === over.id);
+
+    const resList = arrayMove(list, oldIndex, newIndex);
     dispatch(booksActions.refreshList(resList));
-  }, [dispatch]);
+  }, [list, dispatch]);
 
   const onRemove = useCallback((name: string) => {
     const resList = list.filter(book => book.name !== name);
@@ -30,20 +34,28 @@ const Books: FC = () => {
   }, [list, dispatch]);
 
   return (
-    <ReactSortable
-      list={mutableList}
-      setList={onSetList}
-      animation={500}
-      className={s.container}
-    >
-      {list.map((book) => (
-        <Book
-          key={book.id}
-          onRemove={onRemove}
-          {...book}
-        />
-      ))}
-    </ReactSortable>
+    <div className={s.container}>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={onDragEnd}
+      >
+        <SortableContext
+          items={list}
+          strategy={horizontalListSortingStrategy}
+        >
+          {list.map((book) => (
+            <SortableItem key={book.id} id={book.id}>
+              <Book
+                onRemove={onRemove}
+                {...book}
+              />
+            </SortableItem>
+
+          ))}
+        </SortableContext>
+      </DndContext>
+    </div>
   );
 };
 
