@@ -26,13 +26,14 @@ const Book: FC<BookProps> = (props: BookProps) => {
   const bgCls = `${cover}Bg`;
   const borderCls = `${cover}DarkBorder`;
   const bookCls = `${s.book} ${bgCls} ${borderCls}`;
+  const badgeType = pages > 40 ? 'double' : 'single';
 
   return (
     <div className={bookCls} style={style}>
       <span className={s.name}>{name}</span>
       <Badge
         className={s.badge}
-        type={'single'}
+        type={badgeType}
         color={cover}
         lineColor={cover}
         onClick={onClickBadge}

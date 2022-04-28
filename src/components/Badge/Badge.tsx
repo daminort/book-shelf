@@ -15,6 +15,8 @@ const Badge: FC<BadgeProps> = (props: BadgeProps) => {
 
   const circleCls = `${s.circle} ${color}Bg`;
   const singleLineCls = `${s.single} ${color}DarkBg`;
+  const doubleLineTopCls = `${s.doubleTop} ${color}DarkBg`;
+  const doubleLineBottomCls = `${s.doubleBottom} ${color}DarkBg`;
 
   return (
     <div
@@ -27,8 +29,8 @@ const Badge: FC<BadgeProps> = (props: BadgeProps) => {
       )}
       {type === 'double' && (
         <>
-          <div className={s.doubleTop} style={lineStyle} />
-          <div className={s.doubleBottom} style={lineStyle} />
+          <div className={doubleLineTopCls} style={lineStyle} />
+          <div className={doubleLineBottomCls} style={lineStyle} />
         </>
       )}
       <div className={circleCls} />

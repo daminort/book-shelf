@@ -1,12 +1,14 @@
-import { Book } from 'interfaces/books.interface';
+import { IBook } from 'interfaces/books.interface';
 import { randomColor } from 'utils/common.utils';
+import { v4 as uuid } from 'uuid';
 
-function generateBook(name: string): Book {
+function generateBook(name: string): IBook {
   const pages = Math.floor(Math.random() * 8 + 5) * 5;
   const size = name.length * 10 + 50;
   const color = randomColor();
 
   return {
+    id: uuid(),
     name,
     pages,
     size,
@@ -14,7 +16,7 @@ function generateBook(name: string): Book {
   };
 }
 
-const books: Book[] = [
+const books: IBook[] = [
   generateBook('A Short Story'),
   generateBook('The Druid'),
   generateBook('Project Hail Mary'),

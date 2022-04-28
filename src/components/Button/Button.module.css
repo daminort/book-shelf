@@ -4,4 +4,5 @@
   border-radius: 6px;
   background-color: aliceblue;
   color: var(--textMain);
+  cursor: pointer;
 }
