@@ -1,11 +1,11 @@
 import { IBook } from 'interfaces/books.interface';
-import { randomColor } from 'utils/common.utils';
+import { commonUtils } from 'utils/common.utils';
 import { v4 as uuid } from 'uuid';
 
 function generateBook(name: string): IBook {
   const pages = Math.floor(Math.random() * 8 + 5) * 5;
   const size = name.length * 10 + 50;
-  const color = randomColor();
+  const color = commonUtils.randomColor();
 
   return {
     id: uuid(),
@@ -31,6 +31,7 @@ const books: IBook[] = [
   generateBook('Sun Crossed'),
   generateBook('The Uploaded'),
   generateBook('Zodiac'),
+  generateBook('A True Story'),
 ];
 
 const minWidth = books.reduce((res, book) => {

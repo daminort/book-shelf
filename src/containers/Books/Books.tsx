@@ -25,12 +25,12 @@ const Books: FC = () => {
     const newIndex = list.findIndex(book => book.id === over.id);
 
     const resList = arrayMove(list, oldIndex, newIndex);
-    dispatch(booksActions.refreshList(resList));
+    dispatch(booksActions.listRefresh(resList));
   }, [list, dispatch]);
 
   const onRemove = useCallback((name: string) => {
     const resList = list.filter(book => book.name !== name);
-    dispatch(booksActions.refreshList(resList));
+    dispatch(booksActions.listRefresh(resList));
   }, [list, dispatch]);
 
   return (

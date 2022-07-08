@@ -6,6 +6,10 @@ function randomColor(): Color {
   return colors[index];
 }
 
-export {
+const commonUtils = {
   randomColor,
+}
+
+export {
+  commonUtils,
 }

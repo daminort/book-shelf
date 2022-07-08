@@ -1,11 +1,13 @@
-import { booksSlice } from './slice';
-import { booksSelectors } from './selectors';
+import { slice } from './slice';
+import { booksSaga } from './saga';
+import { actions as booksActions } from './actions';
+import { selectors as booksSelectors } from './selectors';
 
-const booksReducer = booksSlice.reducer;
-const booksActions = booksSlice.actions;
+const booksReducer = slice.reducer;
 
 export {
-  booksReducer,
   booksActions,
+  booksReducer,
+  booksSaga,
   booksSelectors,
 }

@@ -1,24 +1,24 @@
 import React, { useEffect, useCallback } from 'react';
 
-import { useDispatch } from 'state';
-import {booksActions } from 'state/Books';
+import { useDispatch, useSelector } from 'state';
+import { booksActions, booksSelectors } from 'state/Books';
 
 import { Button, Shelf } from 'components';
 import { Books } from 'containers/Books';
-import { books, minWidth } from 'mocks/books';
 
 import s from './app.module.css';
 
 function App() {
 
   const dispatch = useDispatch();
+  const shelfSize = useSelector(booksSelectors.getShelfSize);
 
   useEffect(() => {
-    dispatch(booksActions.refreshList(books));
+    dispatch(booksActions.listReload());
   }, [dispatch]);
 
   const onRefresh = useCallback(() => {
-    dispatch(booksActions.refreshList(books));
+    dispatch(booksActions.listReload());
   }, [dispatch]);
 
   return (
@@ -28,7 +28,7 @@ function App() {
       </header>
       <main className={s.main}>
         <Books />
-        <Shelf size={minWidth} />
+        <Shelf size={shelfSize} />
       </main>
     </div>
   );

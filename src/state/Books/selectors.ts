@@ -9,11 +9,22 @@ const getList = createSelector(
   (list) => list,
 );
 
-const booksSelectors = {
+const getShelfSize = createSelector(
+  [list],
+  (list) => {
+    const size = list.reduce((res, book) => {
+      return res + book.pages;
+    }, 0);
+
+    return size;
+  },
+);
+
+const selectors = {
   getList,
+  getShelfSize,
 }
 
 export {
-  booksSelectors,
+  selectors,
 }
-

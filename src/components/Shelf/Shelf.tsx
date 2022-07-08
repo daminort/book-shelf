@@ -5,6 +5,10 @@ import s from './Shelf.module.css';
 
 const Shelf: FC<ShelfProps> = ({ size }) => {
 
+  if (!size) {
+    return null;
+  }
+
   const style = {
     width: size + 120,
   }
